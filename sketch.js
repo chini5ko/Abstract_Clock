@@ -1,4 +1,3 @@
-// const { translator } = require("./p5");
 let m;
 
 function setup() {
@@ -32,7 +31,7 @@ function draw() {
   //red line, sec
   fill(239, 0, 0, backgroundOpacity);
   rect(95, 0, 25, 250, 10);
-  push(); // start translate
+  push();
   translate(95, 250);
   rotate(-25);
   rect(0, 2, 25, 250, 10);
@@ -41,7 +40,7 @@ function draw() {
   //green line, minutes
   fill(1, 144, 74, backgroundOpacity);
   rect(310, 0, 25, 250, 10);
-  push(); // start translate
+  push();
   translate(310, 241);
   rotate(19);
   rect(0, 2, 25, 250, 10);
@@ -72,7 +71,7 @@ function draw() {
   // red line animation, seconds *************************
   fill(239, 0, 0, fillOpacity);
   let s = second();
-  let maxHeight = 250; // max height of the rectangle
+  let maxHeight = 250;
   let redFill = map(s, 0, 30, 0, maxHeight);
   if (s <= 30 ? rect(95, 0, 25, redFill, 10) : rect(95, 0, 25, maxHeight, 10));
 
