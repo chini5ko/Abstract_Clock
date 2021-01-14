@@ -1,2 +1,3 @@
 # Abstract_Clock
-A creative interpretation of the clock, focused on aesthetics and inventiveness
+URL: https://chini5ko.github.io/Abstract_Clock/
+
