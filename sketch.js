@@ -46,13 +46,13 @@ function draw() {
   rect(0, 2, 25, 250, 10);
   pop();
 
-  // purple line anuimation, hours *************************
+  // purple line animation, hours *************************
   fill(180, 0, 180, fillOpacity);
-  let h = hour();
+  let h = hour(); // 0-23
   let maxWidth = 360;
-  let purpleFill = map(h, 0, 12, 0, maxWidth);
+  let purpleFill = map(h, 0, 11, 0, maxWidth);
   if (
-    h <= 12
+    h < 12
       ? rect(130, 265, purpleFill, 23, 10)
       : rect(130, 265, maxWidth, 23, 10)
   );
@@ -60,9 +60,9 @@ function draw() {
   push();
   translate(488, 288);
   rotate(-120);
-  purpleFill = map(h - 12, 0, 12, 0, maxWidth);
+  purpleFill = map(h - 12, 0, 11, 0, maxWidth);
   if (
-    h > 12 && purpleFill > 0
+    h >= 12 && purpleFill > 0
       ? rect(0, 0, 25, purpleFill, 10)
       : rect(0, 0, 25, 0)
   );
@@ -70,34 +70,35 @@ function draw() {
 
   // red line animation, seconds *************************
   fill(239, 0, 0, fillOpacity);
-  let s = second();
+  let s = second(); // 0 -> 59
   let maxHeight = 250;
-  let redFill = map(s, 0, 30, 0, maxHeight);
-  if (s <= 30 ? rect(95, 0, 25, redFill, 10) : rect(95, 0, 25, maxHeight, 10));
+
+  let redFill = map(s, 0, 29, 0, maxHeight);
+  if (s < 30 ? rect(95, 0, 25, redFill, 10) : rect(95, 0, 25, maxHeight, 10));
 
   push();
   translate(95, maxHeight);
   rotate(-25);
-  redFill = map(s - 30, 0, 30, 0, maxHeight);
+  redFill = map(s - 30, 0, 29, 0, maxHeight);
 
   if (
-    s > 30 && redFill > 0 ? rect(0, 2, 25, redFill, 10) : rect(0, 2, 25, 0, 10)
+    s >= 30 && redFill > 0 ? rect(0, 2, 25, redFill, 10) : rect(0, 2, 25, 0, 10)
   );
   pop();
 
   // green line animation, minutes *************************
   fill(1, 144, 74, fillOpacity);
-  m = minute();
-  let greenFill = map(m, 0, 30, 0, maxHeight);
+  m = minute(); // 0 -> 59
+  let greenFill = map(m, 0, 29, 0, maxHeight);
   if (
-    m <= 30 ? rect(310, 0, 25, greenFill, 10) : rect(310, 0, 25, maxHeight, 10)
+    m < 30 ? rect(310, 0, 25, greenFill, 10) : rect(310, 0, 25, maxHeight, 10)
   );
   push();
   translate(310, 241);
   rotate(19);
-  greenFill = map(m - 30, 0, 30, 0, maxHeight);
+  greenFill = map(m - 30, 0, 29, 0, maxHeight);
   if (
-    m > 30 && greenFill > 0
+    m >= 30 && greenFill > 0
       ? rect(0, 2, 25, greenFill, 10)
       : rect(0, 2, 25, 0, 10)
   );
