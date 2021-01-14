@@ -2,8 +2,7 @@
 let m;
 
 function setup() {
-  createCanvas(800, 600); // make an HTML canvas element width x height pixels
-
+  createCanvas(800, 600); // make an HTML canvas element width x height pixel
   angleMode(DEGREES);
 }
 
@@ -52,18 +51,17 @@ function draw() {
   fill(180, 0, 180, fillOpacity);
   let h = hour();
   let maxWidth = 360;
-  let purpleFill = (h * maxWidth) / 12;
+  let purpleFill = map(h, 0, 12, 0, maxWidth);
   if (
     h <= 12
       ? rect(130, 265, purpleFill, 23, 10)
       : rect(130, 265, maxWidth, 23, 10)
   );
 
-  push(); // start translate
+  push();
   translate(488, 288);
   rotate(-120);
-
-  purpleFill = ((h - 12) * maxWidth) / 12;
+  purpleFill = map(h - 12, 0, 12, 0, maxWidth);
   if (
     h > 12 && purpleFill > 0
       ? rect(0, 0, 25, purpleFill, 10)
@@ -75,13 +73,14 @@ function draw() {
   fill(239, 0, 0, fillOpacity);
   let s = second();
   let maxHeight = 250; // max height of the rectangle
-  let redFill = (s * maxHeight) / 30;
+  let redFill = map(s, 0, 30, 0, maxHeight);
   if (s <= 30 ? rect(95, 0, 25, redFill, 10) : rect(95, 0, 25, maxHeight, 10));
-  //diagonal
+
   push();
   translate(95, maxHeight);
   rotate(-25);
-  redFill = ((s - 30) * maxHeight) / 29;
+  redFill = map(s - 30, 0, 30, 0, maxHeight);
+
   if (
     s > 30 && redFill > 0 ? rect(0, 2, 25, redFill, 10) : rect(0, 2, 25, 0, 10)
   );
@@ -90,14 +89,14 @@ function draw() {
   // green line animation, minutes *************************
   fill(1, 144, 74, fillOpacity);
   m = minute();
-  let greenFill = (m * maxHeight) / 29;
+  let greenFill = map(m, 0, 30, 0, maxHeight);
   if (
     m <= 30 ? rect(310, 0, 25, greenFill, 10) : rect(310, 0, 25, maxHeight, 10)
   );
   push();
   translate(310, 241);
   rotate(19);
-  greenFill = ((m - 30) * maxHeight) / 29;
+  greenFill = map(m - 30, 0, 30, 0, maxHeight);
   if (
     m > 30 && greenFill > 0
       ? rect(0, 2, 25, greenFill, 10)
