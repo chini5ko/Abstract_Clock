@@ -1,4 +1,4 @@
-let m;
+let m; //minute
 
 function setup() {
   createCanvas(800, 600); // make an HTML canvas element width x height pixel
@@ -127,7 +127,7 @@ function drawBackground() {
   triangle(800, 670, 800, 280, 430, 350);
   triangle(820, 690, 480, 350, 300, 820);
 
-  // Cetral park
+  // Central park
   fill(158, 210, 174);
   rect(140, 25, 150, 200);
 }
