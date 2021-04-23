@@ -49,6 +49,7 @@ function draw() {
   // purple line animation, hours *************************
   fill(180, 0, 180, fillOpacity);
   let h = hour(); // 0-23
+  h = 23;
   let maxWidth = 360;
   let purpleFill = map(h, 0, 11, 0, maxWidth);
   if (
